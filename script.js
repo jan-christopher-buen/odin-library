@@ -51,3 +51,32 @@ function displayBooks() {
 }
 
 displayBooks();
+
+const dialog = document.querySelector(".book-dialog");
+const form = document.querySelector(".book-form");
+const newBookButton = document.querySelector(".new-book-btn");
+const cancelButton = document.querySelector(".cancel-btn");
+
+newBookButton.addEventListener("click", () => {
+    dialog.showModal();
+});
+
+cancelButton.addEventListener("click", () => {
+    form.reset();
+    dialog.close();
+});
+
+form.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    const title = document.querySelector("#title").value;
+    const author = document.querySelector("#author").value;
+    const pages = Number(document.querySelector("#pages").value);
+    const read = document.querySelector("#read").checked;
+
+    addBookToLibrary(title, author, pages, read);
+    displayBooks();
+
+    form.reset();
+    dialog.close();
+});

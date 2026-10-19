@@ -35,3 +35,71 @@ main {
 .card h2 {
     margin-top: 0;
 }
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+button {
+  padding: 10px 18px;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.new-book-btn {
+  background-color: #f4f1ea;
+  color: #3e2c23;
+  font-weight: bold;
+}
+
+.book-dialog {
+  width: 360px;
+  padding: 24px;
+  border: none;
+  border-radius: 8px;
+}
+
+.book-dialog::backdrop {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.book-form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.book-form h2 {
+  margin-top: 0;
+}
+
+.book-form input[type="text"],
+.book-form input[type="number"] {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.checkbox-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.form-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.form-buttons button[type="submit"] {
+  background-color: #a0522d;
+  color: white;
+}

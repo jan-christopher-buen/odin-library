@@ -16,6 +16,11 @@ function addBookToLibrary(title, author, pages, read) {
     myLibrary.push(book);
 }
 
+function removeBook(id) {
+    const index = myLibrary.findIndex((book) => book.id === id);
+    myLibrary.splice(index, 1);
+}
+
 addBookToLibrary("The Hobbit", "J.R.R. Tolkien", 295, true);
 addBookToLibrary("Noli Me Tangere", "Jose Rizal", 438, false);
 addBookToLibrary("Atomic Habits", "James Clear", 320, true);
@@ -42,10 +47,19 @@ function displayBooks() {
         const status = document.createElement("p");
         status.textContent = book.read ? "Read" : "Not read yet";
 
+        const removeButton = document.createElement("button");
+        removeButton.classList.add("remove-btn");
+        removeButton.textContent = "Remove";
+        removeButton.addEventListener("click", () => {
+            removeBook(card.dataset.id);
+            displayBooks();
+        });
+
         card.appendChild(title);
         card.appendChild(author);
         card.appendChild(pages);
         card.appendChild(status);
+        card.appendChild(removeButton);
         libraryContainer.appendChild(card);
     });
 }

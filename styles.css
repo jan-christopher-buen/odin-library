@@ -20,7 +20,7 @@ main {
 
 .library {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
     gap: 24px;
 }
 
@@ -105,7 +105,6 @@ button {
 }
 
 .remove-btn {
-    margin-top: 8px;
     background-color: #e8e2d6;
     color: #3e2c23;
 }
@@ -113,4 +112,21 @@ button {
 .remove-btn:hover {
     background-color: #d9534f;
     color: white;
+}
+
+.card-buttons {
+    display: flex;
+    gap: 8px;
+    margin-top: 8px;
+}
+
+.toggle-btn {
+    background-color: #a0522d;
+    color: white;
+}
+
+.card-buttons button {
+    padding: 8px 12px;
+    font-size: 0.85rem;
+    white-space: nowrap;
 }

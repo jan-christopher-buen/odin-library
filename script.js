@@ -11,6 +11,10 @@ function Book(title, author, pages, read) {
     this.read = read;
 }
 
+Book.prototype.toggleRead = function () {
+    this.read = !this.read;
+};
+
 function addBookToLibrary(title, author, pages, read) {
     const book = new Book(title, author, pages, read);
     myLibrary.push(book);
@@ -47,6 +51,14 @@ function displayBooks() {
         const status = document.createElement("p");
         status.textContent = book.read ? "Read" : "Not read yet";
 
+        const toggleButton = document.createElement("button");
+        toggleButton.classList.add("toggle-btn");
+        toggleButton.textContent = book.read ? "Mark as unread" : "Mark as read";
+        toggleButton.addEventListener("click", () => {
+            book.toggleRead();
+            displayBooks();
+        });
+
         const removeButton = document.createElement("button");
         removeButton.classList.add("remove-btn");
         removeButton.textContent = "Remove";
@@ -55,11 +67,16 @@ function displayBooks() {
             displayBooks();
         });
 
+        const buttons = document.createElement("div");
+        buttons.classList.add("card-buttons");
+        buttons.appendChild(toggleButton);
+        buttons.appendChild(removeButton);
+
         card.appendChild(title);
         card.appendChild(author);
         card.appendChild(pages);
         card.appendChild(status);
-        card.appendChild(removeButton);
+        card.appendChild(buttons);
         libraryContainer.appendChild(card);
     });
 }
